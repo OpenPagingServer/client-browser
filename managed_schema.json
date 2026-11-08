@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "serverAddress": {
+      "title": "Open Paging Server address",
+      "description": "Enforces the Open Paging Server address used by the extension.",
+      "type": "string"
+    },
+    "fullScreenEmergency": {
+      "title": "Full screen emergency messages",
+      "description": "Controls whether emergency messages open full screen.",
+      "type": "boolean"
+    },
+    "chromeOSOnly": {
+      "title": "ChromeOS only",
+      "description": "Disables the receiver on devices that are not running ChromeOS.",
+      "type": "boolean"
+    },
+    "debug": {
+      "title": "Debug logging",
+      "description": "Enables the session debug log and About page link.",
+      "type": "boolean"
+    },
+    "hideLoggedOffBanner": {
+      "title": "Hide managed sign-in notification",
+      "description": "Suppresses the sign-in notification when a managed server has no logged-in receiver.",
+      "type": "boolean"
+    },
+    "hideGuestLoginPrompt": {
+      "title": "Hide guest sign-in reminder",
+      "description": "Removes the sign-in reminder from the guest receiver's connection notification.",
+      "type": "boolean"
+    },
+    "hideDashboardButton": {
+      "title": "Hide Dashboard button",
+      "description": "Hides the Dashboard button in the receiver popup.",
+      "type": "boolean"
+    },
+    "hideServerAddress": {
+      "title": "Hide server address",
+      "description": "Hides the address and sign-in controls, redacts server addresses in logs, and requires ChromeOS.",
+      "type": "boolean"
+    }
+  }
+}

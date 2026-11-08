@@ -1,0 +1,78 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="popup.css"><title>Open Paging Server</title></head>
+<body>
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute"><symbol id="managed-building" viewBox="0 0 20 20"><path d="M2,3 L2,17 L11.8267655,17 L13.7904799,17 L18,17 L18,7 L12,7 L12,3 L2,3 Z M8,13 L10,13 L10,15 L8,15 L8,13 Z M4,13 L6,13 L6,15 L4,15 L4,13 Z M8,9 L10,9 L10,11 L8,11 L8,9 Z M4,9 L6,9 L6,11 L4,11 L4,9 Z M12,9 L16,9 L16,15 L12,15 L12,9 Z M12,11 L14,11 L14,13 L12,13 L12,11 Z M8,5 L10,5 L10,7 L8,7 L8,5 Z M4,5 L6,5 L6,7 L4,7 L4,5 Z"/></symbol></svg>
+  <main>
+    <header>
+      <img src="icons/icon128.png" alt="" class="logo">
+      <div><h1>Open Paging Server</h1></div>
+      <button id="settings" hidden class="icon-button" aria-label="Settings" title="Settings">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path id="settings-icon-path" d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.62l-1.92-3.32a.49.49 0 0 0-.6-.22l-2.39.96a7.1 7.1 0 0 0-1.62-.94L14.4 2.8a.48.48 0 0 0-.48-.4h-3.84a.48.48 0 0 0-.48.4l-.36 2.54c-.58.24-1.12.56-1.62.94l-2.39-.96a.48.48 0 0 0-.59.22L2.72 8.86a.48.48 0 0 0 .12.62l2.03 1.58c-.05.31-.08.65-.08.94s.03.63.08.94l-2.03 1.58a.49.49 0 0 0-.12.62l1.92 3.32c.12.22.38.31.6.22l2.39-.96c.5.38 1.04.7 1.62.94l.36 2.54c.04.24.24.4.48.4h3.84c.24 0 .44-.16.48-.4l.36-2.54a7.1 7.1 0 0 0 1.62-.94l2.39.96c.22.09.48 0 .6-.22l1.92-3.32a.49.49 0 0 0-.12-.62l-2.04-1.58ZM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2Z"/></svg>
+      </button>
+    </header>
+    <p id="provisioning" role="status">Provisioning environment... Please wait</p>
+    <div id="main-view" hidden>
+      <div id="desktop-only-view" hidden>
+        <h2>Find us on your desktop</h2>
+        <p>This extension is only for Chromebooks. Find Open Paging Server installed in your taskbar, system tray, or desktop. Contact your system administrator if you need help.</p>
+      </div>
+      <div id="receiver-view">
+        <div id="connection" class="status idle" hidden><span></span><b></b></div>
+        <div id="configuration">
+          <label for="server">Server address</label>
+          <input id="server" type="text" inputmode="url" placeholder="paging.example.org" autocomplete="url">
+          <button id="connect" class="primary">Connect</button>
+        </div>
+        <button id="signin" class="primary launch-button" hidden>
+          <span>Sign in</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7ZM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7Z"/></svg>
+        </button>
+        <button id="dashboard" class="primary launch-button" hidden>
+          <span>Dashboard</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7ZM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7Z"/></svg>
+        </button>
+        <p id="message" role="status"></p>
+      </div>
+    </div>
+    <section id="settings-view" tabindex="-1" hidden>
+      <h2>Settings</h2>
+      <label id="chromeos-setting" class="switch-row" for="chromeos-only">
+        <span class="setting-name">ChromeOS only
+        </span>
+        <svg id="chromeos-managed" class="managed-icon" role="img" aria-label="Managed by your administrator" hidden><title>Managed by your administrator</title><use href="#managed-building"/></svg>
+        <input id="chromeos-only" type="checkbox">
+        <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+      </label>
+      <label id="fullscreen-setting" class="switch-row" for="fullscreen-emergency">
+        <span class="setting-name">Full screen emergency messages
+        </span>
+        <svg id="fullscreen-managed" class="managed-icon" role="img" aria-label="Managed by your administrator" hidden><title>Managed by your administrator</title><use href="#managed-building"/></svg>
+        <input id="fullscreen-emergency" type="checkbox" checked>
+        <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+      </label>
+      <label id="debug-setting" class="switch-row" for="debug-toggle" hidden>
+        <span id="debug-setting-label" class="setting-name">SQUASH SOME BUGS!!!!!</span>
+        <svg id="debug-managed" class="managed-icon" role="img" aria-label="Managed by your administrator" hidden><title>Managed by your administrator</title><use href="#managed-building"/></svg>
+        <input id="debug-toggle" type="checkbox">
+        <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+      </label>
+      <div id="server-setting" class="setting-info">
+        <span>Server address</span>
+        <span class="setting-value"><span id="settings-server-address"></span>
+          <svg id="server-managed" class="managed-icon" role="img" aria-label="Managed by your administrator" hidden><title>Managed by your administrator</title><use href="#managed-building"/></svg>
+        </span>
+      </div>
+      <button id="about" class="icon-button" type="button" title="About" aria-label="About">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 15h-2v-6h2v6Zm0-8h-2V7h2v2Z"/></svg>
+      </button>
+      <button id="disconnect" class="danger">Disconnect from server</button>
+    </section>
+    <section id="about-view" hidden>
+      <h2 id="about-title"></h2>
+      <p>Open Paging Server is licensed under the GNU General Public License v2.0. Third-party components, modules, and software used by Open Paging Server are subject to their own licenses.</p>
+      <p>Open Paging Server is provided "as is" without any warranties, express or implied, including but not limited to fitness for a particular purpose or non-infringement.</p>
+      <a id="debug-link" href="debug.html" target="_blank" rel="noopener" hidden>Debug</a>
+    </section>
+  </main>
+  <script src="popup.js"></script>
+</body></html>
