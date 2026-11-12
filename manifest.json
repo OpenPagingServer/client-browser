@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Open Paging Server",
-  "version": "0.1.15",
+  "version": "0.7.0",
   "description": "Receive pages and emergency messages from your organization.",
   "minimum_chrome_version": "116",
   "permissions": [

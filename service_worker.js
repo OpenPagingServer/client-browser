@@ -582,7 +582,7 @@ async function showReadyNotification(state, reconnecting) {
     ? "You will now be able to receive pages and emergency notifications."
     : "You are now ready to receive pages and emergency notifications from your organization.";
   if (guestPrompt) {
-    message += `\n\nYou'll need to login to ${product} to receive broadcasts targeted to you. You'll only need to do this once on this computer.`;
+    message += `\nYou'll need to login to ${product} to receive broadcasts targeted to you. You'll only need to do this once on this computer.`;
   }
   await showNotification(
     `${reconnecting ? "Reconnected" : "Connected"} to ${product}`,
